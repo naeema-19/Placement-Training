@@ -1,2 +1,36 @@
 #Multiplication of 2 numbers without using arithemetic operators
 
+a=int(input("Enter a no :"))
+b=int(input("Enter te other : "))
+def adds(a,b):
+    while b != 0:
+        carry = a&b # Carry value is calculated 
+        a = a^b # Sum value is calculated and stored in a
+        b = carry<<1 # The carry value is shifted towards left by a bit
+
+    return a # returns the final sum
+def russianPeasant(a, b):
+ 
+    res = 0 # initialize result
+ 
+    # While second number doesn't
+    # become 1
+    while (b > 0):
+     
+        # If second number becomes
+        # odd, add the first number
+        # to result
+        if (b & 1):
+            res = adds(res, a)
+ 
+        # Double the first number
+        # and halve the second
+        # number
+        a = a << 1
+        b = b >> 1
+     
+    return res
+ 
+# Driver program to test
+# above function
+print(russianPeasant(a, b))
